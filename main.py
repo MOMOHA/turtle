@@ -5,7 +5,6 @@ import random
 t = Turtle()
 s = Screen()
 
-
 # t.shape("turtle")
 
 # Draw a square
@@ -40,13 +39,29 @@ s = Screen()
 # s.exitonclick()
 
 # Random walk
-t.pensize(5)
-colormode(255)
-directions = [0, 90, 180, 270]
-for walk in range(100):
-    t.speed(0)
-    tup = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    t.color(tup)
-    t.setheading(random.choice(directions))
-    t.forward(20)
+# t.pensize(5)
+# colormode(255)
+# directions = [0, 90, 180, 270]
+# for walk in range(100):
+#     t.speed(0)
+#     tup = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+#     t.color(tup)
+#     t.setheading(random.choice(directions))
+#     t.forward(20)
 
+# Draw a Spirograph
+# t.pensize(3)
+colormode(255)
+t.speed(0)
+
+
+def draw_spirograph(size_of_gap):
+    for r in range(int(360 / size_of_gap)):
+        tup = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        t.color(tup)
+        t.circle(150)
+        current_heading = t.heading()
+        t.setheading(current_heading + size_of_gap)
+
+
+draw_spirograph(5)
